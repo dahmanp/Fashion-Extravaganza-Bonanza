@@ -12,8 +12,6 @@ public class Menu : MonoBehaviour
     public Button showMenu;
     public AudioClip festiveBling;
 
-    public static Menu instance;
-
     public void OnCreditsButton()
     {
         AudioSource audio = GetComponent<AudioSource>();
@@ -37,6 +35,4 @@ public class Menu : MonoBehaviour
         audio.Play();
         SceneManager.LoadScene("Game");
     }
-
-
 }

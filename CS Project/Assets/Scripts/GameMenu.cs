@@ -21,20 +21,19 @@ public class GameMenu : MonoBehaviour
     public GameObject[] pets = new GameObject[3];
     public Material[] bg = new Material[6];
 
-    private GameObject[] prettyGirl;
-    private GameObject[] gigaChad;
-    private GameObject[] funny;
-
     public AudioClip festiveBling;
     public TextMeshProUGUI playerText;
     public GameObject screenshotText;
     public Text playerName;
     public InputField field;
-    public int CurrOption = 9;
+    public int currOption;
+
+    private GameObject[] prettyGirl;
+    private GameObject[] gigaChad;
+    private GameObject[] funny;
 
 
-    //create arrays for each category
-
+    //SCREEN MANAGEMENT--------------------------------------------------------------------
     void SetScreen(GameObject screen)
     {
         // disable all other screens
@@ -103,6 +102,7 @@ public class GameMenu : MonoBehaviour
         
     }
 
+    //TEXT-------------------------------------------------------------------------------
     public void SetPlayerName()
     {
         //field.text = field.text.ToString();
@@ -124,7 +124,7 @@ public class GameMenu : MonoBehaviour
         //playerText.text = "You look FABULOUS, " + PlayerName + "!!!";
     }
 
-    //Homie Clothes Presets
+    //CLOTHING PRESETS--------------------------------------------------------------------
     public void PrettyGirl()
     {
         AudioSource audio = GetComponent<AudioSource>();
@@ -160,22 +160,109 @@ public class GameMenu : MonoBehaviour
             funny.SetActive(true);
         }
     }
-    //Cycling clothes
-    //HAT
+
+    //CLOTHING CHOICE--------------------------------------------------------------------
+    //HATS
     public void HatLeftButton()
     {
-        //check negative if then set to 9?
-        if (CurrOption == 9 )
-        {
-            hats[0].SetActive(false);
+        LeftButton(hats, 9);
+    }
+    public void HatRightButton()
+    {
+        RightButton(hats, 9);
+    }
 
+    //HAIR
+    public void HairLeftButton()
+    {
+        LeftButton(hair, 4);
+    }
+    public void HairRightButton()
+    {
+        RightButton(hair, 4);
+    }
+
+    //GLASSES
+    public void GlassesLeftButton()
+    {
+        LeftButton(glasses, 4);
+    }
+    public void GlassesRightButton()
+    {
+        RightButton(glasses, 4);
+    }
+
+    //SHIRTS
+    public void ShirtsLeftButton()
+    {
+        LeftButton(shirts, 4);
+    }
+    public void ShirtsRightButton()
+    {
+        RightButton(shirts, 4);
+    }
+
+    //PANTS
+    public void PantsLeftButton()
+    {
+        LeftButton(pants, 4);
+    }
+    public void PantsRightButton()
+    {
+        RightButton(pants, 4);
+    }
+
+    //SHOES
+    public void ShoesLeftButton()
+    {
+        LeftButton(shoes, 3);
+    }
+    public void ShoesRightButton()
+    {
+        RightButton(shoes, 3);
+    }
+
+    //PETS
+    public void PetsLeftButton()
+    {
+        LeftButton(pets, 8);
+    }
+    public void PetsRightButton()
+    {
+        RightButton(pets, 8);
+    }
+
+    //CYCLING CLOTHES--------------------------------------------------------------------
+    public void LeftButton(GameObject[] array, int maxval)
+    {
+        GetComponent<AudioSource>().clip = festiveBling;
+        GetComponent<AudioSource>().Play();
+        if (currOption == maxval)
+        {
+            array[0].SetActive(false);
         }
         else
         {
-            hats[CurrOption + 1].SetActive(false);
+            array[currOption + 1].SetActive(false);
         }
-            hats[CurrOption].SetActive(true);
-            CurrOption--;
+        array[currOption].SetActive(true);
+        currOption--;
     }
 
+    public void RightButton(GameObject[] array, int maxval)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (currOption == 0)
+        {
+            array[maxval].SetActive(false);
+        }
+        else
+        {
+            array[currOption - 1].SetActive(false);
+        }
+        array[currOption].SetActive(true);
+        currOption++;
+    }
 }
