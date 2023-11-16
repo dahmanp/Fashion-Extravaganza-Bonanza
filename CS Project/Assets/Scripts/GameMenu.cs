@@ -24,9 +24,9 @@ public class GameMenu : MonoBehaviour
     public AudioClip festiveBling;
     public TextMeshProUGUI playerText;
     public GameObject screenshotText;
-    public Text playerName;
-    public InputField field;
+    public TMP_InputField field;
     public int currOption;
+    public string player;
 
     private GameObject[] prettyGirl;
     private GameObject[] gigaChad;
@@ -103,10 +103,10 @@ public class GameMenu : MonoBehaviour
     }
 
     //TEXT-------------------------------------------------------------------------------
-    public void SetPlayerName()
+    /*public void SetPlayerName()
     {
-        //field.text = field.text.ToString();
-        //field.text = GameNewSave.PlayerName;
+        field.text = field.text.ToString();
+        
 
         //playerName.text = PlayerPrefs.GetString("homieName");
         //playerName.text = field.text;
@@ -122,6 +122,17 @@ public class GameMenu : MonoBehaviour
     public void SetPlayerText()
     {
         //playerText.text = "You look FABULOUS, " + PlayerName + "!!!";
+    }*/
+
+    public void SetName()
+    {
+        player = field.text;
+    }
+
+    public void SetWinText()
+    {
+        //SetName();
+        playerText.text = "You look FABULOUS, " + player + "!!!";
     }
 
     //CLOTHING PRESETS--------------------------------------------------------------------
