@@ -23,35 +23,36 @@ Font-
 
 Sound-
 
--Search Art | OpenGameArt.org (“8-Bit Bossa”, “Shop Theme”)
+-https://opengameart.org/art-search-advanced?keys=sparkle&title=&field_art_tags_tid_op=or&field_art_tags_tid=&name=&field_art_type_tid%5B%5D=13&sort_by=count&sort_order=DESC&items_per_page=24&Collection=(“8-Bit Bossa”, “Shop Theme”)
 
--Download Free Sparkle Sound Effects | Mixkit (“Fairy Arcade Sparkle”, “Festive Melody Audo”)
+-https://mixkit.co/free-sound-effects/sparkle/(“Fairy Arcade Sparkle”, “Festive Melody Audo”)
 
 Models-
 
 -https://assetstore.unity.com/packages/3d/characters/humanoids/npc-character-proto-series-132051
 
--Hats Pack | URP | 3D | Unity Asset Store
+-https://assetstore.unity.com/packages/3d/hats-pack-urp-163011
 
--Very low-poly glasses free VR / AR / low-poly 3D model | CGTrader
+-https://www.cgtrader.com/free-3d-models/character/clothing/very-low-poly-glasses
 
--Hairs 3d model free VR / AR / low-poly 3D model | CGTrader
+-https://www.cgtrader.com/free-3d-models/character/clothing/hairs-3d-model
 
 -https://www.turbosquid.com/3d-models/skirt-3d-1666796
 
--3D Medieval Jacket free VR / AR / low-poly 3D model | CGTrader
+-https://www.cgtrader.com/free-3d-models/character/clothing/3d-medieval-jacket
 
--3ds max tshirt soccer (turbosquid.com)
+-https://www.turbosquid.com/3d-models/3ds-max-tshirt-soccer/570329
 
--Skirt 3D - TurboSquid 1666796
+-https://www.turbosquid.com/3d-models/skirt-3d-1666796
 
--free Denim short shorts Low-poly 3D model free VR / AR / low-poly 3D model | CGTrader
+-https://www.cgtrader.com/free-3d-models/character/clothing/free-denim-short-shorts-low-poly-3d-model)
 
--Superhero Boots - Plain free VR / AR / low-poly 3D model | CGTrader
+-https://www.cgtrader.com/free-3d-models/character/clothing/superhero-boots-plain
 
--slippers free VR / AR / low-poly 3D model | CGTrader
+-https://sketchfab.com/3d-models/shoes-with-heart-heel-437aa3a7b8dc4bcaa0634df4ce0f8edb
 
 -https://assetstore.unity.com/packages/3d/characters/animals/animals-free-260727
 
 Code-
--Unity - Scripting API: ScreenCapture.CaptureScreenshot (unity3d.com)
+
+-https://docs.unity3d.com/ScriptReference/ScreenCapture.CaptureScreenshot.html
