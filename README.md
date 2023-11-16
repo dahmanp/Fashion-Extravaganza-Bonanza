@@ -13,6 +13,18 @@ Style Guide:
 
 https://docs.google.com/document/d/1LGwilQlaMsRypgm0jhcxtyvFhSD7_HynTcQ2j6f_qEE/edit?usp=sharing
 
+Game Scripts:
+
+https://github.com/dahmanp/Fashion-Extravaganza-Bonanza/blob/main/CS%20Project/Assets/Scripts/GameMenu.cs
+
+https://github.com/dahmanp/Fashion-Extravaganza-Bonanza/blob/main/CS%20Project/Assets/Scripts/Menu.cs
+
+Snippets:
+
+https://github.com/dahmanp/Fashion-Extravaganza-Bonanza/blob/main/CodeSnip.cpp
+
+https://github.com/dahmanp/Fashion-Extravaganza-Bonanza/blob/main/Mark.h
+
 
 —----------------RESOURCES—----------------------
 
