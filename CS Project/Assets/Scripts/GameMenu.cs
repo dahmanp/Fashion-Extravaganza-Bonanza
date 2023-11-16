@@ -27,6 +27,8 @@ public class GameMenu : MonoBehaviour
     public TMP_InputField field;
     public int currOption;
     public string player;
+    //public bool maxReached = false;
+     //private int minVal = 0;
 
     private GameObject[] prettyGirl;
     private GameObject[] gigaChad;
@@ -284,6 +286,7 @@ public class GameMenu : MonoBehaviour
     }
 
     //CYCLING CLOTHES--------------------------------------------------------------------
+    /*
     public void LeftButton(GameObject[] array, int maxval)
     {
         GetComponent<AudioSource>().clip = festiveBling;
@@ -299,8 +302,41 @@ public class GameMenu : MonoBehaviour
         array[currOption].SetActive(true);
         currOption--;
     }
+    */
+    
+    public void RightButton(GameObject[] array, int maxVal)
+    {
+        //int i = 0 = curOption //start of options
+        //bool maxReached = false;
+        //private int minVal = 0;
+        //maxVal is max clothing array
+        if(maxreached == true)
+        {
+            array[maxVal].SetActive(false);
+            curOption = minVal;
+        }
+        
+        //always check if max option reached
+        
+        if(curOption < maxVal){
 
-    public void RightButton(GameObject[] array, int maxval)
+            if(curOption > minVal){
+                array[curOption - 1].SetActive(false);
+                // if curOption is already at lowest value skip setting the one before it false
+            }
+            array[curOption].SetActive(true);
+            curOption++;
+        }
+        //check max value so that we are able to display max and also make sure it knows the limit was reached
+        if(curOption == maxVal)
+        {
+            hat[maxVal - 1].SetActive(false);
+            hat[maxVal].SetActive(true);
+            maxReached = true;
+            
+        }
+    }
+    /*public void RightButton(GameObject[] array, int maxval)
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = festiveBling;
@@ -316,4 +352,5 @@ public class GameMenu : MonoBehaviour
         array[currOption].SetActive(true);
         currOption++;
     }
+    */
 }
