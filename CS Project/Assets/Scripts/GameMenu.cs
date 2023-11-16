@@ -174,6 +174,46 @@ public class GameMenu : MonoBehaviour
 
     //CLOTHING CHOICE--------------------------------------------------------------------
     //HATS
+
+    /* Idea for button code
+    remove left button 
+
+    RightHatButton(){
+        //int i = 0; //start of options
+        //bool maxReached = false;
+        
+        //9 is max hat array
+        if(maxreached == true)
+        {
+            hat[9].SetActive(false);
+            i = 0;
+        }
+        
+        //always check if max option reached
+        
+        if(i<9){
+
+            if(i > 0){
+                hat[R - 1].SetActive(false);
+                // if i is already at lowest value skip setting the one before it false
+            }
+            hat[i].SetActive(true);
+            i++;
+        }
+        //check max value so that we are able to display 9 and also make sure it knows the limit was reached
+        if(i==9)
+        {
+            hat[8].SetActive(false);
+            hat[9].SetActive(true);
+            maxReached = true;
+            
+        }
+    //if hat is not reached its max array num then set cur option active and increase i and disable the one before;
+    //if i has reached its max value in array (9 or above) set i back to 0 and set that one active and disable one before;
+    //circles through options
+    //maybe replace 9 with a variable called maxOptions so we can call this function for multiple clothing options.
+    }
+    
     public void HatLeftButton()
     {
         LeftButton(hats, 9);
