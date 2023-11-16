@@ -32,7 +32,8 @@ ostream& operator<<(ostream& os, const UltimateNum& u)
 int getUserFavNum()
 {
     int userEntry;
-    //random while and do while loop because we dont have one in our unity code :)
+    //random while and do while loop 
+    //because we dont have one in our unity code :)
     int i = 0;
     int a = 123;
     
