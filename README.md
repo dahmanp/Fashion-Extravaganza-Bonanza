@@ -4,6 +4,7 @@ The best fashion game in the business!
 
 Playable build:
 
+https://dahmanp.github.io/Fashion-Extravaganza-Bonanza/
 
 Check out our PowerPoint:
 
