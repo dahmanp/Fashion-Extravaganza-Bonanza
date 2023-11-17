@@ -25,14 +25,33 @@ public class GameMenu : MonoBehaviour
     public TextMeshProUGUI playerText;
     public GameObject screenshotText;
     public TMP_InputField field;
-    public int currOption;
-    public string player;
-    //public bool maxReached = false;
-     //private int minVal = 0;
 
-    private GameObject[] prettyGirl;
-    private GameObject[] gigaChad;
-    private GameObject[] funny;
+    public string player;
+    public bool maxHatReached = false;
+    public bool maxHairReached = false;
+    public bool maxShoesReached = false;
+    public bool maxPantsReached = false;
+    public bool maxGlassesReached = false;
+    public bool maxPetsReached = false;
+    public bool maxbgReached = false;
+    public bool maxShirtsReached = false;
+
+    public GameObject planeBG;
+
+    public int minVal = 0;
+
+    public GameObject[] prettyGirl;
+    public GameObject[] gigaChad;
+    public GameObject[] funny;
+
+    private int currHatOption;
+    private int currHairOption;
+    private int currShoesOption;
+    private int currPantsOption;
+    private int currGlassesOption;
+    private int currPetsOption;
+    private int currbgOption;
+    private int currShirtsOption;
 
 
     //SCREEN MANAGEMENT--------------------------------------------------------------------
@@ -105,27 +124,6 @@ public class GameMenu : MonoBehaviour
     }
 
     //TEXT-------------------------------------------------------------------------------
-    /*public void SetPlayerName()
-    {
-        field.text = field.text.ToString();
-        
-
-        //playerName.text = PlayerPrefs.GetString("homieName");
-        //playerName.text = field.text;
-        //PlayerPrefs.SetString("homieName", playerName.text);
-        //PlayerPrefs.Save();
-    }
-
-    public void UpdateText()
-    {
-        screenshotText.SetActive(true);
-    }
-
-    public void SetPlayerText()
-    {
-        //playerText.text = "You look FABULOUS, " + PlayerName + "!!!";
-    }*/
-
     public void SetName()
     {
         player = field.text;
@@ -143,10 +141,17 @@ public class GameMenu : MonoBehaviour
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = festiveBling;
         audio.Play();
-        prettyGirl = GameObject.FindGameObjectsWithTag("PrettyGirl");
         foreach (GameObject prettyGirl in prettyGirl)
         {
             prettyGirl.SetActive(true);
+        }
+        foreach (GameObject gigaChad in gigaChad)
+        {
+            gigaChad.SetActive(false);
+        }
+        foreach (GameObject funny in funny)
+        {
+            funny.SetActive(false);
         }
     }
 
@@ -155,10 +160,17 @@ public class GameMenu : MonoBehaviour
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = festiveBling;
         audio.Play();
-        gigaChad = GameObject.FindGameObjectsWithTag("GigaChad");
         foreach (GameObject gigaChad in gigaChad)
         {
             gigaChad.SetActive(true);
+        }
+        foreach (GameObject prettyGirl in prettyGirl)
+        {
+            prettyGirl.SetActive(false);
+        }
+        foreach (GameObject funny in funny)
+        {
+            funny.SetActive(false);
         }
     }
 
@@ -167,190 +179,254 @@ public class GameMenu : MonoBehaviour
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = festiveBling;
         audio.Play();
-        funny = GameObject.FindGameObjectsWithTag("Funny");
         foreach (GameObject funny in funny)
         {
             funny.SetActive(true);
         }
-    }
-
-    //CLOTHING CHOICE--------------------------------------------------------------------
-    //HATS
-
-    /* Idea for button code
-    remove left button 
-
-    RightHatButton(){
-        //int i = 0; //start of options
-        //bool maxReached = false;
-        
-        //9 is max hat array
-        if(maxreached == true)
+        foreach (GameObject gigaChad in gigaChad)
         {
-            hat[9].SetActive(false);
-            i = 0;
+            gigaChad.SetActive(false);
         }
-        
-        //always check if max option reached
-        
-        if(i<9){
-
-            if(i > 0){
-                hat[R - 1].SetActive(false);
-                // if i is already at lowest value skip setting the one before it false
-            }
-            hat[i].SetActive(true);
-            i++;
-        }
-        //check max value so that we are able to display 9 and also make sure it knows the limit was reached
-        if(i==9)
+        foreach (GameObject prettyGirl in prettyGirl)
         {
-            hat[8].SetActive(false);
-            hat[9].SetActive(true);
-            maxReached = true;
-            
-        }
-    //if hat is not reached its max array num then set cur option active and increase i and disable the one before;
-    //if i has reached its max value in array (9 or above) set i back to 0 and set that one active and disable one before;
-    //circles through options
-    //maybe replace 9 with a variable called maxOptions so we can call this function for multiple clothing options.
-    }
-    
-    public void HatLeftButton()
-    {
-        LeftButton(hats, 9);
-    }
-    public void HatRightButton()
-    {
-        RightButton(hats, 9);
-    }
-
-    //HAIR
-    public void HairLeftButton()
-    {
-        LeftButton(hair, 4);
-    }
-    public void HairRightButton()
-    {
-        RightButton(hair, 4);
-    }
-
-    //GLASSES
-    public void GlassesLeftButton()
-    {
-        LeftButton(glasses, 4);
-    }
-    public void GlassesRightButton()
-    {
-        RightButton(glasses, 4);
-    }
-
-    //SHIRTS
-    public void ShirtsLeftButton()
-    {
-        LeftButton(shirts, 4);
-    }
-    public void ShirtsRightButton()
-    {
-        RightButton(shirts, 4);
-    }
-
-    //PANTS
-    public void PantsLeftButton()
-    {
-        LeftButton(pants, 4);
-    }
-    public void PantsRightButton()
-    {
-        RightButton(pants, 4);
-    }
-
-    //SHOES
-    public void ShoesLeftButton()
-    {
-        LeftButton(shoes, 3);
-    }
-    public void ShoesRightButton()
-    {
-        RightButton(shoes, 3);
-    }
-
-    //PETS
-    public void PetsLeftButton()
-    {
-        LeftButton(pets, 8);
-    }
-    public void PetsRightButton()
-    {
-        RightButton(pets, 8);
-    }
-
-    //CYCLING CLOTHES--------------------------------------------------------------------
-    /*
-    public void LeftButton(GameObject[] array, int maxval)
-    {
-        GetComponent<AudioSource>().clip = festiveBling;
-        GetComponent<AudioSource>().Play();
-        if (currOption == maxval)
-        {
-            array[0].SetActive(false);
-        }
-        else
-        {
-            array[currOption + 1].SetActive(false);
-        }
-        array[currOption].SetActive(true);
-        currOption--;
-    }
-    */
-    
-    public void RightButton(GameObject[] array, int maxVal)
-    {
-        //int i = 0 = curOption //start of options
-        //bool maxReached = false;
-        //private int minVal = 0;
-        //maxVal is max clothing array
-        if(maxreached == true)
-        {
-            array[maxVal].SetActive(false);
-            curOption = minVal;
-        }
-        
-        //always check if max option reached
-        
-        if(curOption < maxVal){
-
-            if(curOption > minVal){
-                array[curOption - 1].SetActive(false);
-                // if curOption is already at lowest value skip setting the one before it false
-            }
-            array[curOption].SetActive(true);
-            curOption++;
-        }
-        //check max value so that we are able to display max and also make sure it knows the limit was reached
-        if(curOption == maxVal)
-        {
-            hat[maxVal - 1].SetActive(false);
-            hat[maxVal].SetActive(true);
-            maxReached = true;
-            
+            prettyGirl.SetActive(false);
         }
     }
-    /*public void RightButton(GameObject[] array, int maxval)
+
+    //CYCLING BGS--------------------------------------------------------------------
+    public void BGSelectButton()
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = festiveBling;
         audio.Play();
-        if (currOption == 0)
+        if (maxbgReached == true)
         {
-            array[maxval].SetActive(false);
+            currbgOption = 0;
+            maxbgReached = false;
         }
-        else
+
+        if (currbgOption < 6)
         {
-            array[currOption - 1].SetActive(false);
+            planeBG.gameObject.GetComponent<MeshRenderer>().material = bg[currbgOption];
         }
-        array[currOption].SetActive(true);
-        currOption++;
+        currbgOption++;
+
+        if (currbgOption == 6)
+        {
+            planeBG.gameObject.GetComponent<MeshRenderer>().material = bg[6];
+            maxbgReached = true;
+        }
     }
-    */
+
+    //CYCLING CLOTHES--------------------------------------------------------------------
+    public void HatRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxHatReached == true)
+        {
+            hats[9].SetActive(false);
+            currHatOption = 0;
+            maxHatReached = false;
+        }
+
+        if(currHatOption < 9)
+        {
+            if(currHatOption > 0)
+            {
+                hats[currHatOption - 1].SetActive(false);
+            }
+            hats[currHatOption].SetActive(true);
+        }
+        currHatOption++;
+
+        if(currHatOption == 9)
+        {
+            hats[9 - 1].SetActive(false);
+            hats[9].SetActive(true);
+            maxHatReached = true;
+        }
+    }
+
+    public void HairRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxHairReached == true)
+        {
+            hair[4].SetActive(false);
+            currHairOption = 0;
+            maxHairReached = false;
+        }
+
+        if (currHairOption < 4)
+        {
+            if (currHairOption > 0)
+            {
+                hair[currHairOption - 1].SetActive(false);
+            }
+            hair[currHairOption].SetActive(true);
+        }
+        currHairOption++;
+        
+
+        if (currHairOption == 4)
+        {
+            hair[4 - 1].SetActive(false);
+            hair[4].SetActive(true);
+            maxHairReached = true;
+        }
+    }
+
+    public void GlassesRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxGlassesReached == true)
+        {
+            glasses[4].SetActive(false);
+            currGlassesOption = 0;
+            maxGlassesReached = false;
+        }
+
+        if (currGlassesOption < 4)
+        {
+            if (currGlassesOption > 0)
+            {
+                glasses[currGlassesOption - 1].SetActive(false);
+            }
+            glasses[currGlassesOption].SetActive(true);
+        }
+        currGlassesOption++;
+
+        if (currGlassesOption == 4)
+        {
+            glasses[4 - 1].SetActive(false);
+            glasses[4].SetActive(true);
+            maxGlassesReached = true;
+        }
+    }
+
+    public void ShirtsRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxShirtsReached == true)
+        {
+            shirts[4].SetActive(false);
+            currShirtsOption = 0;
+            maxShirtsReached = false;
+        }
+
+        if (currShirtsOption < 4)
+        {
+            if (currShirtsOption > 0)
+            {
+                shirts[currShirtsOption - 1].SetActive(false);
+            }
+            shirts[currShirtsOption].SetActive(true);
+        }
+        currShirtsOption++;
+
+        if (currShirtsOption == 4)
+        {
+            shirts[4 - 1].SetActive(false);
+            shirts[4].SetActive(true);
+            maxShirtsReached = true;
+        }
+    }
+    
+    public void PantsRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxPantsReached == true)
+        {
+            pants[4].SetActive(false);
+            currPantsOption = 0;
+            maxPantsReached = false;
+        }
+
+        if (currPantsOption < 4)
+        {
+            if (currPantsOption > 0)
+            {
+                pants[currPantsOption - 1].SetActive(false);
+            }
+            pants[currPantsOption].SetActive(true);
+        }
+        currPantsOption++;
+
+        if (currPantsOption == 4)
+        {
+            pants[4 - 1].SetActive(false);
+            pants[4].SetActive(true);
+            maxPantsReached = true;
+        }
+    }
+
+    public void ShoesRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxShoesReached == true)
+        {
+            shoes[3].SetActive(false);
+            currShoesOption = 0;
+            maxShoesReached = false;
+        }
+
+        if (currShoesOption < 3)
+        {
+            if (currShoesOption > 0)
+            {
+                shoes[currShoesOption - 1].SetActive(false);
+            }
+            shoes[currShoesOption].SetActive(true);
+        }
+        currShoesOption++;
+
+        if (currShoesOption == 3)
+        {
+            shoes[3 - 1].SetActive(false);
+            shoes[3].SetActive(true);
+            maxShoesReached = true;
+        }
+    }
+
+    public void PetsRightButton()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = festiveBling;
+        audio.Play();
+        if (maxPetsReached == true)
+        {
+            pets[8].SetActive(false);
+            currPetsOption = 0;
+            maxPetsReached = false;
+        }
+
+        if (currPetsOption < 8)
+        {
+            if (currPetsOption > 0)
+            {
+                pets[currPetsOption - 1].SetActive(false);
+            }
+            pets[currPetsOption].SetActive(true);
+        }
+        currPetsOption++;
+
+        if (currPetsOption == 8)
+        {
+            pets[8 - 1].SetActive(false);
+            pets[8].SetActive(true);
+            maxPetsReached = true;
+        }
+    }
 }
